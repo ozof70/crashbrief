@@ -1,0 +1,57 @@
+{
+  "title": "Checkout worker failure",
+  "log": "2026-10-29T12:00:00Z INFO starting checkout worker\n2026-10-29T12:00:01Z INFO [REDACTED_1]\n2026-10-29T12:00:01Z DEBUG API_KEY=[REDACTED_2]\n2026-10-29T12:00:01Z DEBUG Authorization: [REDACTED_3]\n2026-10-29T12:00:02Z ERROR ConnectionRefusedError: connection refused 127.0.0.1:5432\n  File \"[REDACTED_4]/checkout/worker.py\", line 42, in process_payment\n2026-10-29T12:00:03Z ERROR ConnectionRefusedError: connection refused 127.0.0.1:5432\n2026-10-29T12:00:04Z ERROR TimeoutError: payment queue timed out\n",
+  "analysis": {
+    "line_count": 8,
+    "error_lines": 3,
+    "unique_error_lines": 2,
+    "top_errors": [
+      {
+        "text": "ERROR ConnectionRefusedError: connection refused 127.0.0.1:5432",
+        "count": 2
+      },
+      {
+        "text": "ERROR TimeoutError: payment queue timed out",
+        "count": 1
+      }
+    ],
+    "signals": [
+      {
+        "code": "connection_refused",
+        "title": "Connection refused",
+        "lines": [
+          5,
+          7
+        ],
+        "next_step": "Check that the target service is running and listening on the configured host and port. Check container port mappings."
+      },
+      {
+        "code": "timeout",
+        "title": "Operation timed out",
+        "lines": [
+          8
+        ],
+        "next_step": "Check target availability, latency, and timeout settings. Confirm whether the receiver completed the operation before retrying."
+      }
+    ],
+    "stack_frames": [
+      {
+        "language": "python",
+        "location": "[REDACTED_4]/checkout/worker.py",
+        "line": 42,
+        "function": "process_payment",
+        "log_line": 6
+      }
+    ]
+  },
+  "redactions": {
+    "email": 1,
+    "assignment": 1,
+    "authorization": 1,
+    "home_path": 1
+  },
+  "fingerprint": "47e43b28a2a751230b275ffdf2f3ed9fff1cf2b5e8a144b66c885162819c1356",
+  "schema_version": 1,
+  "notice": "Pattern-based redaction can miss secrets. Review this report before sharing.",
+  "comparison": null
+}

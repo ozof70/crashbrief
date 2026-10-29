@@ -1,0 +1,8 @@
+2026-10-29T12:00:00Z INFO starting checkout worker
+2026-10-29T12:00:01Z INFO user=developer@example.com
+2026-10-29T12:00:01Z DEBUG API_KEY="demo-secret-not-a-real-key"
+2026-10-29T12:00:01Z DEBUG Authorization: Bearer demo-bearer-not-a-real-token
+2026-10-29T12:00:02Z ERROR ConnectionRefusedError: connection refused 127.0.0.1:5432
+  File "/home/developer/checkout/worker.py", line 42, in process_payment
+2026-10-29T12:00:03Z ERROR ConnectionRefusedError: connection refused 127.0.0.1:5432
+2026-10-29T12:00:04Z ERROR TimeoutError: payment queue timed out

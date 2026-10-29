@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crashbrief"
+version = "0.1.0"
+description = "Turn noisy error logs into redacted, actionable debugging reports. Offline. No API keys."
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = []
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Debuggers",
+  "Environment :: Console",
+]
+
+[project.scripts]
+crashbrief = "crashbrief.cli:main"
+
+[project.urls]
+Repository = "https://github.com/ozof70/crashbrief"
+Issues = "https://github.com/ozof70/crashbrief/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

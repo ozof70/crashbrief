@@ -1,0 +1,3 @@
+title = "Checkout worker incident"
+# Exact strings only. Configuration is local; do not commit actual secrets.
+redact = ["checkout.internal.example", "customer-demo-42"]
